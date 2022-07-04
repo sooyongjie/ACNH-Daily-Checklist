@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #BFE8AD;
+  background-image: url(../image/background.svg);
+  background-repeat: repeat;
+  background-size: 1000px;
+  padding-bottom: 10ch;
+  line-height: 1.5;
+}
+
+* {
+  font-family: 'Varela Round', sans-serif;
+}
+
+input, button {
+  border: none;
+  outline: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFF8E3;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #7C6746;
+}
+
+.title {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.container {
+  padding: 0px 20px;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 24px;
+}
+
+.welcome-container {
+  margin-top: 24px;
+  max-width: 600px;
+  width: auto;
+}
+
+.box {
+  padding: 24px;
+  background: #FFF8E3;
+  border-radius: 40px;
+  position: relative;
+}
+
+.box-header {
+  top: -12px;
+  padding: 4px 8px;
+  position: absolute;
+  background: #FDEC9F;
+  border-radius: 16px;
+  font-size: 15px;
+  color: #7C6746;
+  font-weight: bold;
+}
+
+.box-body {
+  padding-top: 8px;
+  color: #837256;
+  font-weight: bold;
+}
+
+.search-container {
+  padding: 12px 20px 8px 20px;
+  height: fit-content;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 36px;
+  background-color: #FFFFF3;
+}
+
+.search-container input {
+  height: 25px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #56483D;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.search-container .dash {
+  width: 100%;
+  height: 2px;
+  background-image: url("../image/dash.svg");
+  background-repeat: space;
+}
+
+.villagers {
+  display: grid;
+  row-gap: 72px;
+}
+
+.villager {
+  width: auto;
+  border-radius: 24px;
+  display: grid;
+  row-gap: 12px;
+}
+
+.villager img {
+  width: 100%;
+  border-radius: 24px;
+}
+
+.villager-container {
+  max-width: 600px;
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 36px;
+}
+
+@media (max-width: 768px) {
+  .villager-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .villager-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/*# sourceMappingURL=style.css.map */
