@@ -13,7 +13,6 @@ function Home() {
         setQuery(capitalizeFirstLetter(event.target.value))
     }
 
-
     return (
         <div className="container">
             <div className="welcome-container">
@@ -27,7 +26,7 @@ function Home() {
                 </div>
             </div>
             <div className="search-container">
-                <input type="text" name="acnh-search" onInput={updateVillagers} />
+                <input type="search" name="acnh-search" onInput={updateVillagers} />
                 <div className="dash"></div>
             </div>
             <Villagers query={query} />
