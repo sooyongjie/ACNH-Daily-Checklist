@@ -251,6 +251,7 @@ button {
 @media (max-width: 500px) {
     .villager-container {
         grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 24px !important;
     }
 
     .villager-details {
@@ -271,8 +272,34 @@ button {
 
     .villager-details {
         grid-template-columns: 1fr 1fr !important;
+
         &-container {
             grid-template-columns: 1fr !important;
+            img {
+                justify-self: center;
+                width: 75% !important;
+            }
+        }
+    }
+}
+
+@media (max-height: 600px) {
+    .villager-details {
+        &-container {
+            img {
+                width: 50% !important;
+            }
+        }
+    }
+}
+
+@media (max-height: 540px) {
+    .villager-details {
+        &-container {
+            img {
+                justify-self: center;
+                width: 35% !important;
+            }
         }
     }
 }

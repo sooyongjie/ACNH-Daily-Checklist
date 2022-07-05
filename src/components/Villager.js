@@ -3,7 +3,7 @@ import CloseIcon from '../image/close.svg'
 
 const Villager = ({ villager, showVilDetailPopup }) => {
   return (
-    <div className="popup-container">
+    <div className="popup-container" onClick={() => showVilDetailPopup()}>
       <div className="villager-details-container" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }}>
         <img src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
         <div className="villager-details">
