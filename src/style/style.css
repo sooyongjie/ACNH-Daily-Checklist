@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Varela+Round&display=swap");
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -16,13 +18,18 @@ html {
   font-family: 'Varela Round', sans-serif;
 }
 
-input, button {
+input,
+button {
   border: none;
   outline: none;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
   display: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* Track */
@@ -94,6 +101,11 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 100%;
   border-radius: 36px;
   background-color: #FFFFF3;
+  transition: 0.1s ease-in-out;
+}
+
+.search-container:focus-within {
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
 }
 
 .search-container input {
@@ -113,6 +125,79 @@ input[type="search"]::-webkit-search-cancel-button {
   background-repeat: space;
 }
 
+.popup-container {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.popup-container .villager-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.popup-container .villager-details label:last-child,
+.popup-container .villager-details p:last-child {
+  grid-column: 1/3;
+  margin-bottom: 0px;
+}
+
+.popup-container .villager-details label {
+  font-family: 'Baloo 2', cursive;
+  font-size: 14px;
+  filter: brightness(95%);
+}
+
+.popup-container .villager-details p {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.popup-container .villager-details-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: start;
+  column-gap: 32px;
+  row-gap: 32px;
+  border-radius: 48px;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.33);
+}
+
+.popup-container .villager-details-container img {
+  width: 100%;
+  border-radius: 24px;
+}
+
+.popup-container .close-btn {
+  margin-right: 24px;
+  align-self: flex-end;
+  padding: 4px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4px;
+  background: #FFF8E3;
+  color: #837256;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.1s ease-in-out;
+}
+
+.popup-container .close-btn:hover, .popup-container .close-btn:focus {
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.2);
+}
+
+.popup-container .close-btn span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
 .villagers {
   display: grid;
   row-gap: 72px;
@@ -128,6 +213,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .villager img {
   width: 100%;
   border-radius: 24px;
+  cursor: pointer;
 }
 
 .villager-container {
@@ -143,11 +229,34 @@ input[type="search"]::-webkit-search-cancel-button {
   .villager-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .villager-details-container {
+    grid-template-columns: 2fr 4fr !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .villager-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .villager-details {
+    grid-template-columns: 1fr 1.25fr !important;
+  }
+  .villager-details-container {
+    grid-template-columns: 2fr 5fr !important;
+    column-gap: 24px !important;
+    row-gap: 24px !important;
+  }
 }
 
 @media (max-width: 420px) {
   .villager-container {
     grid-template-columns: 1fr 1fr;
+  }
+  .villager-details {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .villager-details-container {
+    grid-template-columns: 1fr !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

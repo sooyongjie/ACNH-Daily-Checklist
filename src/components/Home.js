@@ -1,9 +1,12 @@
 import Villagers from './Villagers';
+import Villager from './Villager';
 import { useState } from "react"
 
 
 function Home() {
     const [query, setQuery] = useState("")
+    const [vilDetailPopup, showVilDetailPopup] = useState(false)
+    const [vilInfo, setVilInfo] = useState([])
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -26,10 +29,12 @@ function Home() {
                 </div>
             </div>
             <div className="search-container">
-                <input type="search" name="acnh-search" onInput={updateVillagers} />
+                <input type="search" name="acnh-search" onInput={updateVillagers} placeholder="Search (Name, Species, Personality)" />
                 <div className="dash"></div>
             </div>
-            <Villagers query={query} />
+            {vilDetailPopup && <Villager villager={vilInfo} showVilDetailPopup={() => { showVilDetailPopup(false) }} />}
+            {/* {!vilDetailPopup && <Villagers query={query} showVilDetailPopup={() => { showVilDetailPopup(true) }} setVilInfo={(vil) => { setVilInfo(vil) }} />} */}
+            <Villagers query={query} showVilDetailPopup={() => { showVilDetailPopup(true) }} setVilInfo={(vil) => { setVilInfo(vil) }} />
         </div>
     )
 }

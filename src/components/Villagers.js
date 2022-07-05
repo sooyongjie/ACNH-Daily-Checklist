@@ -1,18 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import VillagerList from '../villagers.json';
 import { useState } from "react"
-import img from '../image/villagers_poster/NpcNmlSqu07.png'
 
 
-function Villagers({ query }) {
+function Villagers({ query, showVilDetailPopup, setVilInfo }) {
     const [villagers, setVillagers] = useState(VillagerList)
 
     let name = Object.values(villagers).filter(vil => vil.name.nameUSen.includes(query))
     let personality = Object.values(villagers).filter(vil => vil.personality.includes(query))
     let species = Object.values(villagers).filter(vil => vil.species.includes(query))
-
-    if (Object.keys(species).length == 0 && Object.keys(name).length == 0 && Object.keys(personality).length == 0) console.log("WHAT");
 
     return (
         <div className='villagers'>
@@ -25,7 +21,7 @@ function Villagers({ query }) {
                                     <div className="title" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }} >
                                         {villager.name.nameEUen}
                                     </div>
-                                    <img src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
+                                    <img onClick={() => { setVilInfo(villager); showVilDetailPopup() }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
                                 </div>
                             ))
                         }
@@ -41,7 +37,7 @@ function Villagers({ query }) {
                                     <div className="title" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }} >
                                         {villager.name.nameEUen}
                                     </div>
-                                    <img src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
+                                    <img onClick={() => { setVilInfo(villager); showVilDetailPopup() }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
                                 </div>
                             ))
                         }
@@ -58,7 +54,7 @@ function Villagers({ query }) {
                                     <div className="title" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }} >
                                         {villager.name.nameEUen}
                                     </div>
-                                    <img src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
+                                    <img onClick={() => { setVilInfo(villager); showVilDetailPopup() }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
                                 </div>
                             ))
                         }
