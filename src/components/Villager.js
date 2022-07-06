@@ -5,7 +5,7 @@ const Villager = ({ villager, showVilDetailPopup }) => {
   return (
     <div className="popup-container" onClick={() => showVilDetailPopup()}>
       <div className="villager-details-container" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }}>
-        <img src={require(`../image/villagers_poster/Upscaled/NpcNml${villager.file_name}.png`)} alt="" />
+        <img src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
         <div className="villager-details">
           <label>Name</label>
           <label>Species</label>
@@ -24,7 +24,7 @@ const Villager = ({ villager, showVilDetailPopup }) => {
           <p>{villager.hobby}</p>
           <p>{villager.catchPhrase}</p>
           <label>Sayings</label>
-          <p>"{villager.saying} "</p>
+          <p>"{villager.saying}"</p>
         </div>
       </div>
       <button onClick={() => showVilDetailPopup()} className="close-btn">
