@@ -1,14 +1,26 @@
 import React from 'react'
 import VillagerList from '../villagers.json';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 
 function Villagers({ query, showVilDetailPopup, setVilInfo }) {
     const [villagers, setVillagers] = useState(VillagerList)
+    const [count, setCount] = useState(42)
 
     let name = Object.values(villagers).filter(vil => vil.name.nameUSen.includes(query))
     let personality = Object.values(villagers).filter(vil => vil.personality.includes(query))
     let species = Object.values(villagers).filter(vil => vil.species.includes(query))
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            const bottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight
+
+            if (bottom) {
+                setCount(count + 63)
+            }
+        })
+    })
+
 
     return (
         <div className='villagers'>
@@ -16,7 +28,7 @@ function Villagers({ query, showVilDetailPopup, setVilInfo }) {
                 Object.keys(name).length != 0 && (
                     <div className='villager-container'>
                         {
-                            name.map((villager) => (
+                            name.slice(0, count).map((villager) => (
                                 <div className="villager">
                                     <div className="title" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }} >
                                         {villager.name.nameEUen}
@@ -29,7 +41,7 @@ function Villagers({ query, showVilDetailPopup, setVilInfo }) {
                 )
             }
             {
-                Object.keys(personality).length != 0 && (
+                query != "" && Object.keys(personality).length != 0 && (
                     <div className='villager-container'>
                         {
                             personality.map((villager) => (
@@ -46,7 +58,7 @@ function Villagers({ query, showVilDetailPopup, setVilInfo }) {
             }
 
             {
-                Object.keys(species).length != 0 && (
+                query != "" && Object.keys(species).length != 0 && (
                     <div className='villager-container'>
                         {
                             species.map((villager) => (
