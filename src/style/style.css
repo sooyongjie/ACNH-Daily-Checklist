@@ -176,9 +176,14 @@ button {
   border-radius: 24px;
 }
 
-.popup-container .close-btn {
+.popup-container .button-row {
   margin-right: 24px;
+  display: flex;
+  column-gap: 12px;
   align-self: flex-end;
+}
+
+.popup-container .close-btn {
   padding: 4px 8px 4px 6px;
   display: flex;
   justify-content: center;

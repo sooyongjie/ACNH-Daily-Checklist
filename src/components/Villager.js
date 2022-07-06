@@ -1,9 +1,11 @@
 import React from 'react'
 import CloseIcon from '../image/close.svg'
+import NextIcon from '../image/next.svg'
+import PrevIcon from '../image/prev.svg'
 
-const Villager = ({ villager, showVilDetailPopup }) => {
+const Villager = ({ villager, setVillagerData, showVilDetailPopup }) => {
   return (
-    <div className="popup-container" onClick={() => showVilDetailPopup()}>
+    <div className="popup-container">
       <div className="villager-details-container" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }}>
         <img src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" />
         <div className="villager-details">
@@ -27,10 +29,24 @@ const Villager = ({ villager, showVilDetailPopup }) => {
           <p>"{villager.saying}"</p>
         </div>
       </div>
-      <button onClick={() => showVilDetailPopup()} className="close-btn">
-        <img src={CloseIcon} alt="" />
-        <span>Close</span>
-      </button>
+      <div className="button-row">
+        {
+          villager.id > 1 && (
+            <button onClick={() => setVillagerData(villager.id - 1)} className="close-btn">
+              <img src={PrevIcon} alt="" />
+              <span>Previous</span>
+            </button>
+          )
+        }
+        <button onClick={() => setVillagerData(villager.id + 1)} className="close-btn">
+          <img src={NextIcon} alt="" />
+          <span>Next</span>
+        </button>
+        <button onClick={() => showVilDetailPopup()} className="close-btn">
+          <img src={CloseIcon} alt="" />
+          <span>Close</span>
+        </button>
+      </div>
     </div>
   )
 }

@@ -1,15 +1,22 @@
 import Villagers from './Villagers';
 import Villager from './Villager';
-import { useState } from "react"
+import VillagerList from '../villagers.json';
 
+import { useState } from "react"
 
 function Home() {
     const [query, setQuery] = useState("")
     const [vilDetailPopup, showVilDetailPopup] = useState(false)
     const [vilInfo, setVilInfo] = useState([])
+    const [villagers, setVillagersData] = useState(VillagerList)
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    const setVillagerData = (id) => {
+        console.log('id: ', id);
+        setVilInfo(Object.values(villagers)[--id])
     }
 
     const updateVillagers = (event) => {
@@ -32,9 +39,9 @@ function Home() {
                 <input type="search" name="acnh-search" onInput={updateVillagers} placeholder="Search (Name, Species, Personality)" />
                 <div className="dash"></div>
             </div>
-            {vilDetailPopup && <Villager villager={vilInfo} showVilDetailPopup={() => { showVilDetailPopup(false) }} />}
+            {vilDetailPopup && <Villager villager={vilInfo} setVillagerData={(id) => { setVillagerData(id) }} showVilDetailPopup={() => { showVilDetailPopup(false) }} />}
             {/* {!vilDetailPopup && <Villagers query={query} showVilDetailPopup={() => { showVilDetailPopup(true) }} setVilInfo={(vil) => { setVilInfo(vil) }} />} */}
-            <Villagers query={query} showVilDetailPopup={() => { showVilDetailPopup(true) }} setVilInfo={(vil) => { setVilInfo(vil) }} />
+            <Villagers query={query} showVilDetailPopup={() => { showVilDetailPopup(true) }} setVillagerData={(id) => { setVillagerData(id) }} />
         </div>
     )
 }
