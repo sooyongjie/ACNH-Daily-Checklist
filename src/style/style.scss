@@ -275,6 +275,7 @@ button {
 
         &-container {
             grid-template-columns: 1fr !important;
+
             img {
                 justify-self: center;
                 width: 75% !important;
@@ -283,7 +284,7 @@ button {
     }
 }
 
-@media (max-height: 600px) {
+@media (max-height: 600px) and (max-width: 420px) {
     .villager-details {
         &-container {
             img {
@@ -293,7 +294,7 @@ button {
     }
 }
 
-@media (max-height: 540px) {
+@media (max-height: 540px) and (max-width: 420px) {
     .villager-details {
         &-container {
             img {
