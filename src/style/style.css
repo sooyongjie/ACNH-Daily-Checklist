@@ -132,6 +132,7 @@ button {
   flex-direction: column;
   row-gap: 16px;
   transition: 0.2s ease-out;
+  padding: 0 20px;
 }
 
 .popup-container .villager-details {
@@ -241,13 +242,12 @@ button {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 512px) {
   .villager-container {
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 24px !important;
   }
   .popup-container {
-    padding: 0 20px;
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
@@ -266,6 +266,10 @@ button {
   .villager-container {
     grid-template-columns: 1fr 1fr;
   }
+  .popup-container .button-row {
+    margin-right: 0px !important;
+    align-self: center;
+  }
   .villager-details {
     grid-template-columns: 1fr 1fr !important;
   }
@@ -274,7 +278,7 @@ button {
   }
   .villager-details-container img {
     justify-self: center;
-    width: 75% !important;
+    width: 66% !important;
   }
 }
 
