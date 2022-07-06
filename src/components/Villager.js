@@ -25,7 +25,7 @@ const Villager = ({ villager, setVillagerData, showVilDetailPopup }) => {
           <label>Catch Phrase</label>
           <p>{villager.hobby}</p>
           <p>{villager.catchPhrase}</p>
-          <label>Sayings</label>
+          <label>Quote</label>
           <p>"{villager.saying}"</p>
         </div>
       </div>
@@ -38,13 +38,13 @@ const Villager = ({ villager, setVillagerData, showVilDetailPopup }) => {
             </button>
           )
         }
-        <button onClick={() => setVillagerData(villager.id + 1)} className="close-btn">
-          <img src={NextIcon} alt="" />
-          <span>Next</span>
-        </button>
         <button onClick={() => showVilDetailPopup()} className="close-btn">
           <img src={CloseIcon} alt="" />
           <span>Close</span>
+        </button>
+        <button onClick={() => setVillagerData(villager.id + 1)} className="close-btn">
+          <img src={NextIcon} alt="" />
+          <span>Next</span>
         </button>
       </div>
     </div>
