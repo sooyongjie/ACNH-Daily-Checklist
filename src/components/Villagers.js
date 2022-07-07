@@ -32,7 +32,7 @@ function Villagers({ query, setVillagerData }) {
                                     <div className="title" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }} >
                                         {villager.name.nameEUen}
                                     </div>
-                                    <img onClick={() => { setCount(42); setVillagerData(villager.id); }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" loading="lazy" />
+                                    <img onClick={() => { setVillagerData(villager.id); }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" loading="lazy" />
                                 </div>
                             ))
                         }
@@ -48,7 +48,7 @@ function Villagers({ query, setVillagerData }) {
                                     <div className="title" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }} >
                                         {villager.name.nameEUen}
                                     </div>
-                                    <img onClick={() => { setCount(42); setVillagerData(villager.id); }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" loading="lazy" />
+                                    <img onClick={() => { setVillagerData(villager.id); }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" loading="lazy" />
                                 </div>
                             ))
                         }
@@ -64,7 +64,7 @@ function Villagers({ query, setVillagerData }) {
                                     <div className="title" style={{ backgroundColor: villager.bubble_color, color: villager.text_color }} >
                                         {villager.name.nameEUen}
                                     </div>
-                                    <img onClick={() => { setCount(42); setVillagerData(villager.id); }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" loading="lazy" />
+                                    <img onClick={() => { setVillagerData(villager.id); }} src={require(`../image/villagers_poster/NpcNml${villager.file_name}.png`)} alt="" loading="lazy" />
                                 </div>
                             ))
                         }
