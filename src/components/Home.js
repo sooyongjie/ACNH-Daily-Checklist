@@ -15,8 +15,8 @@ function Home() {
     }
 
     const setVillagerData = (id) => {
-        console.log('id: ', id);
         setVilInfo(Object.values(villagers)[--id])
+        showVilDetailPopup(true)
     }
 
     const updateVillagers = (event) => {
@@ -36,12 +36,11 @@ function Home() {
                 </div>
             </div>
             <div className="search-container">
-                <input type="search" name="acnh-search" onInput={updateVillagers} placeholder="Search (Name, Species, Personality)" />
+                <input type="search" name="acnh-search" onInput={updateVillagers} value={query} placeholder="Search (Name, Species, Personality)" />
                 <div className="dash"></div>
             </div>
-            {vilDetailPopup && <Villager villager={vilInfo} setVillagerData={(id) => { setVillagerData(id) }} showVilDetailPopup={() => { showVilDetailPopup(false) }} />}
-            {/* {!vilDetailPopup && <Villagers query={query} showVilDetailPopup={() => { showVilDetailPopup(true) }} setVilInfo={(vil) => { setVilInfo(vil) }} />} */}
-            <Villagers query={query} showVilDetailPopup={() => { showVilDetailPopup(true) }} setVillagerData={(id) => { setVillagerData(id) }} />
+            {vilDetailPopup && <Villager villager={vilInfo} setQuery={(query) => { setQuery(query) }} setVillagerData={(id) => { setVillagerData(id) }} showVilDetailPopup={() => { showVilDetailPopup(false) }} />}
+            <Villagers query={query} setVillagerData={(id) => { setVillagerData(id) }} />
         </div>
     )
 }
